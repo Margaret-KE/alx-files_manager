@@ -1,4 +1,4 @@
-//This file contains the code to start the server.
+// This file contains the code to start the server.
 import envLoader from '../utils/env_loader';
 
 const startServer = (api) => {

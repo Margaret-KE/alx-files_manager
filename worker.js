@@ -36,7 +36,7 @@ fileQueue.process(async (job, done) => {
   const file = await (await dbClient.filesCollection())
     .findOne({
       _id: new mongoDBCore.BSON.ObjectId(fileId),
-      userId: new mongoDBCore.BSON.ObjectId(userId),
+      userId: new mongoDBCore.BSON.ObjectId(userId)
     });
   if (!file) {
     throw new Error('File not found');
@@ -75,7 +75,7 @@ userQueue.process(async (job, done) => {
       ' - Change permission of a file',
       ' - View a file',
       ' - Generate thumbnails for images',
-      '</div>',
+      '</div>'
     ].join('');
     Mailer.sendMail(Mailer.buildMessage(user.email, mailSubject, mailContent));
     done();

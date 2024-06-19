@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'fs';
 
-
 const envLoader = () => {
   const env = process.env.npm_lifecycle_event || 'dev';
   const path = env.includes('test') || env.includes('cover') ? '.env.test' : '.env';
