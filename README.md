@@ -25,7 +25,7 @@
 - [Mime-Types](https://www.npmjs.com/package/mime-types)
 - [Redis](https://github.com/redis/node-redis)
 
-#### Project to be done in teams of 2 people
+#### Project to be done by:
 - [Margaret Wangechi](https://github.com/Margaret-KE)
 - [Stanley Anyumba](https://github.com/AnyumbaKE)
 

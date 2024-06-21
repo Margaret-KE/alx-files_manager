@@ -37,7 +37,7 @@ fileQueue.process(async (job, done) => {
   const file = await (await dbClient.filesCollection())
     .findOne({
       _id: new mongoDBCore.BSON.ObjectId(fileId),
-      userId: new mongoDBCore.BSON.ObjectId(userId)
+      userId: new mongoDBCore.BSON.ObjectId(userId),
     });
   if (!file) {
     throw new Error('File not found');
@@ -65,18 +65,13 @@ userQueue.process(async (job, done) => {
     const mailSubject = 'Welcome to ALX-Files_Manager by B3zaleel';
     const mailContent = [
       '<div>',
-      '<h3>Greatings {{user.name}},</h3>',
-      'Thank you for creating time to visit <a href="https://github.com/Margaret-KE/alx-files_manager">',
+      '<h3>Hello {{user.name}},</h3>',
+      'Welcome to <a href="https://github.com/B3zaleel/alx-files_manager">',
       'ALX-Files_Manager</a>, ',
-      'This project is a summary of this back-end trimester: authentication, NodeJS, MongoDB, Redis, pagination and background processing.',
-      'The objective is to build a simple platform to upload and view files:',
-      ' - User authentication via a token',
-      ' - List all files',
-      ' - Upload a new file',
-      ' - Change permission of a file',
-      ' - View a file',
-      ' - Generate thumbnails for images',
-      '</div>'
+      'a simple file management API built with Node.js by ',
+      '<a href="https://github.com/B3zaleel">Bezaleel Olakunori</a>. ',
+      'We hope it meets your needs.',
+      '</div>',
     ].join('');
     Mailer.sendMail(Mailer.buildMessage(user.email, mailSubject, mailContent));
     done();
